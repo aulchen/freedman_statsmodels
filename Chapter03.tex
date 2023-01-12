@@ -1,0 +1,93 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{bbm}
+\usepackage{mathabx}
+
+\newenvironment{proof}{\paragraph{Proof:}}{\hfill$\square$}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\usepackage{graphicx}
+\graphicspath{ {./images/Chapter03/} }
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+
+\newcommand{\F}{\mathcal{F}}
+
+\newcommand{\prob}{\boldsymbol{P}}
+\newcommand{\E}{\text{E}}
+\newcommand{\var}{\text{Var}}
+\newcommand{\cov}{\text{Cov}}
+\newcommand{\sd}{\text{SD}}
+\newcommand{\se}{\text{SE}}
+
+\newcommand{\pois}{\text{Pois}}
+
+\author{Arthur Chen}
+\title{Chapter 3 - Matrix Algebra}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem Set C}
+
+\subsection*{Problem 3}
+
+If $A$ is a fixed (i.e. nonrandom) matrix of size $n \times \ell$ and $B$ is a fixed matrix of size $1 \times m$, show that $\E(AUB) = A\E(U)B$.
+
+$AU \in \R^{n \times 1}$. The $i$th element is
+
+\[
+(AU)_i = \sum_{k=1}^\ell a_{ik}u_k
+\]
+
+and the $i,j$th element of $AUB \in \R^{n \times m}$ is
+
+\[
+(AUB)_{ij} = \sum_{k=1}^\ell a_{ik}u_k b_j
+\]
+
+The expectation of a random matrix is the expectation of each of its elements, so
+
+\[
+\E(AUB)_{ij} = \sum_{k=1}^\ell a_{ik} \E(u_k) b_j
+\]
+
+Unwinding the matrix multiplications shows that this equals $A\E(U)B$, as desired.
+
+\subsection*{Problem 4}
+
+Show that $\cov(AU) = A\cov(U)A'$.
+
+By definition, $\cov(AU) = \E\left((AU-\E(AU))(AU-\E(AU))'\right)$. Looking at the $AU-\E(AU)$ term, by Problem 3,
+
+\[
+AU-\E(AU) = AU - A\E(U) = A(U-E(U))
+\]
+
+Similarly,
+
+\[
+(AU-\E(AU))' = (U-\E(U))'A'
+\]
+
+and so
+
+\begin{align*}
+\cov(AU) &= \E\left((AU-\E(AU))(AU-\E(AU))'\right)  \\
+&= \E\left( A(U - \E(U))(U - \E(U))' A' \right) \\
+&= A \E\left((U - \E(U))(U - \E(U))'  \right) A'
+= A \cov(U) A'
+\end{align*}
+
+where the last result follows by an extension of Problem 3 (prove this more formally!)
+
+\end{document}
