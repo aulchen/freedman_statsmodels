@@ -63,6 +63,25 @@ The expectation of a random matrix is the expectation of each of its elements, s
 
 Unwinding the matrix multiplications shows that this equals $A\E(U)B$, as desired.
 
+This result generalizes to arbitrary matrices. Let $A \in \R^{n \times d}, U \in \R^{d \times c}$, and $B \in \R^{c \times m}$. We first calculate the elements of $A\E(U)B$. Given
+
+\[
+(UB)_{ij} = \sum_{\ell = 1}^c U_{i \ell}B_{ell j}
+\]
+
+\begin{align*}
+(AUB)_{ij} &= \sum_{k=1}^d A_{ik}(UB)_{kj} \\
+&= \sum_{\ell = 1}^c \sum_{k=1}^d A_{ik} U_{k \ell}B_{\ell j}
+\end{align*}
+
+The expectation of a random matrix is the elementwise expectation of each of its elements, so
+
+\[
+(E(AUB))_{ij} = E((AUB)_{ij}) = \sum_{\ell = 1}^c \sum_{k=1}^d A_{ik} \E(U)_{k \ell}B_{\ell j}
+\]
+
+and by unwinding this, we see that this equals $A\E(U)B$, as desired.
+
 \subsection*{Problem 4}
 
 Show that $\cov(AU) = A\cov(U)A'$.
@@ -88,6 +107,6 @@ and so
 = A \cov(U) A'
 \end{align*}
 
-where the last result follows by an extension of Problem 3 (prove this more formally!)
+where the last result follows from Problem 3 because $A$ and $A'$ are fixed, while $(U - \E(U))(U - \E(U))'$ is random.
 
 \end{document}
