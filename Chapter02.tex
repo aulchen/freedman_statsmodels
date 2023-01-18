@@ -1,0 +1,98 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{bbm}
+\usepackage{mathabx}
+
+\newenvironment{proof}{\paragraph{Proof:}}{\hfill$\square$}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\usepackage{graphicx}
+\graphicspath{ {./images/Chapter03/} }
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+
+\newcommand{\F}{\mathcal{F}}
+
+\newcommand{\prob}{\boldsymbol{P}}
+\newcommand{\E}{\text{E}}
+\newcommand{\var}{\text{Var}}
+\newcommand{\cov}{\text{Cov}}
+\newcommand{\sd}{\text{SD}}
+\newcommand{\se}{\text{SE}}
+
+\newcommand{\pois}{\text{Pois}}
+
+\author{Arthur Chen}
+\title{Chapter 2 The Regression Line}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Exercise Set A}
+
+\subsection*{Problem 1}
+
+In the Pearson-Lee data, the average height of the fathers was 67.7 inches; the SD was 2.74 inches. The average height of the sons was 68.7 inches; the SD was 2.81 inches. The correlation was .501.
+
+\subsubsection*{Part a}
+
+True or false and explain: because the sons average an inch taller than the fathers, if the father is 72 inches tall, it's 50-50 whether the son is taller than 73 inches.
+
+False. The statement as given states that given the point $(\bar{x}, \bar{y})$, moving to $\bar{x} + c$ causes the conditional mean of $y$ to increase to $\bar{y} + c$. This is incorrect. The correct statement is that by moving to $\bar{x} + SD_x$, the conditional mean of $y$ increases to $\bar{y} + r SD_y$.
+
+\subsubsection*{Part b}
+
+Find the regression line of son's height on father's height, and its RMS error.
+
+The line is
+
+\[
+y - 68.7 = .501 \frac{2.81}{2.74}(x - 67.7)
+\]
+
+From the formulas, the MSE is
+
+\[
+MSE = (1-.501^2)(2.81^2) = 5.914
+\]
+
+and RMS is $\sqrt{5.914} = 2.432$.
+
+\subsection*{Problem 2}
+
+Can you determine $a$ in the regression equation by measuring the length of the spring with no load? With one measurement? Ten measurements? Explain.
+
+No. We never can determine $a$. We can only estimate it from the observed $(x, y)$ values.
+
+\section*{Exercise Set B}
+
+\subsection*{Problem 9}
+
+Equation 7, reprinted below, is a model.
+
+\[
+Y_i = a + bx_i + e_i
+\]
+
+\subsection*{Problem 10}
+
+In the equation from Problem 9, $a$ and $b$ are unobservable parameters. $Y_i$ is an observable random variable, while $e_i$ is an unobservable random variable.
+
+\subsection*{Problem 11}
+
+According to Equation 7, the 439.00 in table 1 is the observed value of a random variable.
+
+\subsection*{Problem 13}
+
+A statistician has a sample, and is computing the sum of the squared deviations of the sample numbers from a number $q$. The sum of the squared deviations will be smallest when $q$ is the average of the measurements in the sample. It's well known that letting your estimate of a sample be the mean minimizes the mean-squared error between the estimate and the sampled points.
+
+\end{document}
